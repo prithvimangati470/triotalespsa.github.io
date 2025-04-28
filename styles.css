@@ -473,6 +473,10 @@ p {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
+.back-to-top:active {
+    transform: translateY(0);
+}
+
 /* Animations */
 @keyframes fadeIn {
     from {

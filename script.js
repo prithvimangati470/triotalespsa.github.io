@@ -69,27 +69,36 @@ window.addEventListener('scroll', () => {
     progressBar.style.width = scrolled + '%';
 });
 
-// Add back to top button
-const backToTopButton = document.createElement('button');
-backToTopButton.className = 'back-to-top';
-backToTopButton.innerHTML = '↑';
-document.body.appendChild(backToTopButton);
+// Back to Top Button
+function createBackToTopButton() {
+    const button = document.createElement('button');
+    button.className = 'back-to-top';
+    button.innerHTML = '↑';
+    document.body.appendChild(button);
 
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-        backToTopButton.style.opacity = '1';
-        backToTopButton.style.visibility = 'visible';
-    } else {
-        backToTopButton.style.opacity = '0';
-        backToTopButton.style.visibility = 'hidden';
-    }
-});
-
-backToTopButton.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            button.style.opacity = '1';
+            button.style.visibility = 'visible';
+        } else {
+            button.style.opacity = '0';
+            button.style.visibility = 'hidden';
+        }
     });
+
+    // Scroll to top when clicked
+    button.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// Initialize features when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    createBackToTopButton();
 });
 
 // Stats Counter Animation
