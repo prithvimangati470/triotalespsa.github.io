@@ -199,17 +199,75 @@ colorModeBtn.addEventListener('click', () => {
     if (darkMode) {
         document.documentElement.style.setProperty('--light-bg', '#23272f');
         document.documentElement.style.setProperty('--white', '#23272f');
-        document.documentElement.style.setProperty('--text-color', '#f7f9fc');
+        document.documentElement.style.setProperty('--text-color', '#00ffff');
+        document.documentElement.style.setProperty('--primary-color', '#00ffff');
         document.documentElement.style.setProperty('--card-shadow', '0 8px 16px rgba(0,0,0,0.4)');
         document.documentElement.style.setProperty('--hover-shadow', '0 12px 24px rgba(0,0,0,0.5)');
         colorModeBtn.textContent = '☀️';
+        
+        // Update all text elements to soft cyan except header and datetime
+        document.querySelectorAll('h1, h2, h3, h4, p, a, span, label, .cta-button, .submit-button').forEach(element => {
+            // Skip header elements
+            if (!element.closest('.main-nav') && !element.closest('.nav-container')) {
+                element.style.color = '#00ffff';
+            }
+        });
+
+        // Update button backgrounds to be more visible
+        document.querySelectorAll('.cta-button, .submit-button').forEach(button => {
+            button.style.backgroundColor = '#23272f';
+            button.style.border = '2px solid #00ffff';
+        });
+
+        // Keep header text black
+        document.querySelectorAll('.main-nav a, .logo span').forEach(element => {
+            element.style.color = '#000000';
+        });
+
+        // Make date and time section more visible with black text
+        const datetimeSection = document.querySelector('.datetime-section');
+        if (datetimeSection) {
+            datetimeSection.style.backgroundColor = '#ffffff';
+            datetimeSection.style.border = '2px solid #00ffff';
+            datetimeSection.style.padding = '1.5rem';
+            datetimeSection.style.borderRadius = '15px';
+        }
+        document.querySelectorAll('.datetime-value, .datetime-label').forEach(element => {
+            element.style.color = '#000000';
+            element.style.fontWeight = 'bold';
+        });
     } else {
         document.documentElement.style.setProperty('--light-bg', '#F7F9FC');
         document.documentElement.style.setProperty('--white', '#FFFFFF');
         document.documentElement.style.setProperty('--text-color', '#2C3E50');
+        document.documentElement.style.setProperty('--primary-color', '#000000');
         document.documentElement.style.setProperty('--card-shadow', '0 8px 16px rgba(0,0,0,0.1)');
         document.documentElement.style.setProperty('--hover-shadow', '0 12px 24px rgba(0,0,0,0.15)');
         colorModeBtn.textContent = '🌙';
+        
+        // Reset all text elements to their original color
+        document.querySelectorAll('h1, h2, h3, h4, p, a, span, label, .cta-button, .submit-button').forEach(element => {
+            element.style.color = '';
+        });
+
+        // Reset button styles
+        document.querySelectorAll('.cta-button, .submit-button').forEach(button => {
+            button.style.backgroundColor = '';
+            button.style.border = '';
+        });
+
+        // Reset date and time section
+        const datetimeSection = document.querySelector('.datetime-section');
+        if (datetimeSection) {
+            datetimeSection.style.backgroundColor = '';
+            datetimeSection.style.border = '';
+            datetimeSection.style.padding = '';
+            datetimeSection.style.borderRadius = '';
+        }
+        document.querySelectorAll('.datetime-value, .datetime-label').forEach(element => {
+            element.style.color = '';
+            element.style.fontWeight = '';
+        });
     }
 });
 
