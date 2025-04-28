@@ -228,28 +228,14 @@ animateTextShadow();
 
 // Dynamic Greeting Message
 function updateGreeting() {
-    const hour = new Date().getHours();
     const greetingEl = document.getElementById('greeting-message');
-    let greeting = '';
-
-    if (hour >= 5 && hour < 12) {
-        greeting = 'Good Morning! 🌅';
-    } else if (hour >= 12 && hour < 17) {
-        greeting = 'Good Afternoon! ☀️';
-    } else if (hour >= 17 && hour < 21) {
-        greeting = 'Good Evening! 🌆';
-    } else {
-        greeting = 'Good Night! 🌙';
-    }
-
     if (greetingEl) {
-        greetingEl.textContent = greeting;
+        greetingEl.textContent = 'Welcome to the channel';
     }
 }
 
-// Update greeting immediately and then every minute
+// Update greeting immediately
 updateGreeting();
-setInterval(updateGreeting, 60000);
 
 // Loading Animation
 document.addEventListener('DOMContentLoaded', () => {
