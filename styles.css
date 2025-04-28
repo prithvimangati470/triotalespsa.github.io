@@ -360,6 +360,8 @@ p {
     font-weight: 800;
     letter-spacing: 1.2px;
     line-height: 1.1;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .cta p {
@@ -368,6 +370,8 @@ p {
     font-weight: 400;
     letter-spacing: 0.4px;
     line-height: 1.8;
+    color: var(--white);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .stats {
@@ -390,8 +394,9 @@ p {
     font-weight: 700;
     letter-spacing: 1.2px;
     line-height: 1;
-    color: var(--accent-color);
-    text-shadow: 0 2px 4px rgba(255, 230, 109, 0.3);
+    color: #FF6B6B;  /* Warm red color for numbers */
+    text-shadow: 0 2px 4px rgba(255, 107, 107, 0.3);
+    animation: pulse 2s infinite;
 }
 
 .stat-label {
@@ -402,6 +407,7 @@ p {
     text-transform: uppercase;
     color: var(--white);
     text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 /* Progress Bar */
