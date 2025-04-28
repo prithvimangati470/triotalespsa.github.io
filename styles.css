@@ -110,7 +110,7 @@ p {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/hero-bg.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
     color: var(--white);
@@ -130,7 +130,7 @@ p {
     right: 0;
     bottom: 0;
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-    opacity: 0.7;
+    opacity: 0.3;
     z-index: 1;
 }
 
